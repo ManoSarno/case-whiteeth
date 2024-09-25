@@ -6,32 +6,65 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Whiteeth</title>
 		<link rel="stylesheet" href="styles.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 	</head>
 
 	<body>
 		<header class="header">
-			<div class="header-top">
-				<p><a href="#">Cadastre-se</a> para ganhar 15% na primeira compra</p>
+			<div class="scheme--2">
+				<div class="container header-top">
+					<p><a href="#">cadastre-se</a> para ganhar 15% na primeira compra</p>
+				</div>
 			</div>
 			
-			<nav class="navbar">
-				<div class="logo">Whiteeth</div>
-				<div class="menu">
-						<a href="#">Todos os produtos</a>
-						<a href="#" class="btn-assinar">Assinar Whiteeth</a>
-						<div class="cart">
-								<span aria-label="carrinho de compras">🛒</span>
-								<span class="cart-count" aria-live="polite">0</span>
+			<nav class="scheme--3">
+				<div class="container navbar">
+					<div class="menu">
+						<svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z" fill="currentColor"/>
+						</svg>
+						<span class="hide-small">Todos os produtos</span>
+					</div>
+	
+					<div class="logo">
+						<img src="assets/logo-whiteeth.svg" alt="Logo branca Whiteeth">
+					</div>
+					
+					<div class="header-icons">
+						<a href="#" class="button scheme--2 hide-small">Assinar Whiteeth</a>
+						
+						<div class="login">
+							<svg class="icon icon-account" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 6C13.93 6 15.5 7.57 15.5 9.5C15.5 11.43 13.93 13 12 13C10.07 13 8.5 11.43 8.5 9.5C8.5 7.57 10.07 6 12 6ZM12 20C9.97 20 7.57 19.18 5.86 17.12C7.6116 15.7457 9.77362 14.9988 12 14.9988C14.2264 14.9988 16.3884 15.7457 18.14 17.12C16.43 19.18 14.03 20 12 20Z" fill="currentColor"/>
+							</svg>
 						</div>
+	
+						<div class="cart">
+							<svg class="icon icon-cart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M11 9H13V6H16V4H13V1H11V4H8V6H11V9ZM7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18ZM7.17 14.75L7.2 14.63L8.1 13H15.55C16.3 13 16.96 12.59 17.3 11.97L21.16 4.96L19.42 4H19.41L18.31 6L15.55 11H8.53L8.4 10.73L6.16 6L5.21 4L4.27 2H1V4H3L6.6 11.59L5.25 14.04C5.09 14.32 5 14.65 5 15C5 16.1 5.9 17 7 17H19V15H7.42C7.29 15 7.17 14.89 7.17 14.75Z" fill="currentColor"/>
+							</svg>
+							<span class="cart-count hidden" aria-live="polite">0</span>
+						</div>
+					</div>
 				</div>
 			</nav>
 
-			<div class="hero">
-					<img src="banner.jpg" alt="Banner Cuide do seu sorriso">
-					<div class="hero-text">
-							<h1>Cuide do seu sorriso, <br>mas também do planeta</h1>
-							<p>Encontre aqui produtos de higiene bucal orgânicos e refrescantes...</p>
+			<div class="hero scheme--2">
+				<div class="hero-img">
+					<img src="assets/banner.jpg" alt="Banner Cuide do seu sorriso" class="hide-small">
+					<img src="assets/banner_mobile.jpg" alt="Banner Cuide do seu sorriso" class="hide-large">	
+				</div>
+				<div class="hero-text-wrapper">
+					<div class="container">
+						<div class="hero-text">
+							<h1>Cuide do seu sorriso, <span>mas também do planeta</span></h1>
+							<p>Encontre aqui produtos de higiene bucal orgânicos e refrescantes, como pasta de dente, escova de dente e muito mais!</p>
+						</div>
 					</div>
+				</div>
 			</div>
 		</header>
 
