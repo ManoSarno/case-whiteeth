@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const opacityLayer = document.querySelector('.opacity-layer');
   const drawerFooter = document.querySelector('.drawer-footer');
   
+  // Open cart and show opacity layer
   openCartBtn.addEventListener('click', () => {
     drawerCart.classList.add('open');
     opacityLayer.classList.remove('hidden');
   });
-
+  // Close cart and hide opacity layer
   closeCartBtn.addEventListener('click', () => {
     drawerCart.classList.remove('open');
     opacityLayer.classList.add('hidden');
@@ -24,18 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // Load cart from localStorage
   let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
 
+  // Save cart
   function saveCart() {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
   }
 
+  // Update total price
   function updateTotal() {
     const total = cart.reduce((sum, product) => sum + (product.price * product.quantity), 0);
     cartTotal.textContent = `R$${total.toFixed(2)}`;
   }
 
+  // Render cart with elements inside
   function renderCart() {
     cartItemsContainer.innerHTML = '';
 
+    // If cart is empty, renders message and button to close cart
     if (cart.length === 0) {
       const emptyCart = document.createElement('div');
       emptyCart.classList.add('empty-cart');
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       return;
     }
-
+    // If cart is not empty, renders cart items
     drawerFooter.classList.remove('hidden');
       
     cart.forEach((product, index) => {
@@ -129,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const existingProduct = cart.find(item => item.id === productId);
 
     if (existingProduct) {
+      // If product already on cart, increase quantity
       existingProduct.quantity++;
     } else {
       const product = products.find(p => p.id === productId);
@@ -144,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     openCartBtn.click();
   }
 
-  // Adicionar evento para os botões de adicionar ao carrinho
+  // Event listener to add to cart buttons
   const buttons = document.querySelectorAll('.add-to-cart');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
