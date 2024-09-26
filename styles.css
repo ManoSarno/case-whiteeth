@@ -133,6 +133,7 @@ h1, h2, h3, h4, h5 {
   line-height: 150%;
   font-weight: 700;
   padding: 12px 24px;
+  border: none;
   border-radius: 8px;
   text-decoration: none;
 }
@@ -394,6 +395,7 @@ main {
 
 .product-card .regular-price {
   font-size: 16px;
+  min-height: 16px;
   color: var(--gray);
   text-decoration: line-through;
 }
@@ -409,6 +411,51 @@ main {
   width: 100%;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.newsletter-wrapper {
+  display: grid;
+  grid-template-columns: 467px 1fr;
+}
+
+.newsletter-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 660px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.newsletter h3 {
+  font-size: 32px;
+}
+
+.newsletter form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 537px;
+}
+
+.newsletter input {
+  padding: 14.5px 16px;
+  width: 100%;
+  border: 2px solid var(--dark-brown);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.newsletter button {
+  width: max-content;
+  padding: 12px 24px;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .hide-large {

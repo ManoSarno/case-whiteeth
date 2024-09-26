@@ -71,7 +71,7 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
           </div>
 
           <div class="price">
-            ${product.comparePrice ? `<span class="regular-price">R$${product.comparePrice.toFixed(2).toString().replace('.', ',')}</span>` : ''}
+            <span class="regular-price">${product.comparePrice ? `R$${product.comparePrice.toFixed(2).toString().replace('.', ',')}` : ''}</span>
             <span class="discount-price">
               R$${product.price.toFixed(2).toString().replace('.', ',')}
             </span>
