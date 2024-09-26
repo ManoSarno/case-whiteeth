@@ -1,16 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const products = [
-    { name: 'Hortelã', category: 'Pasta de dente', image: 'img-toothpaste.webp', imageAlt: 'Pasta de dente de Hortelã', rating: 4.5, ratingNumbers: 24, price: 70.90 },
-    { name: 'Morango', category: 'Pasta de dente', image: 'img-toothpaste.webp', imageAlt: 'Pasta de dente de Morango', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Uva', category: 'Pasta de dente', image: 'img-toothpaste.webp', imageAlt: 'Pasta de dente de Uva', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Café', category: 'Pasta de dente', image: 'img-toothpaste.webp', imageAlt: 'Pasta de dente de Café', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Bamboo', category: 'Escova de dente', image: 'img-toothbrush.webp', imageAlt: 'Escova de dentes de Bamboo', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Mógno', category: 'Escova de dente', image: 'img-toothbrush.webp', imageAlt: 'Escova de dentes de Mógno', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Carvalho', category: 'Escova de dente', image: 'img-toothbrush.webp', imageAlt: 'Escova de dentes de Carvalho', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Fio dental', category: 'Outros', image: 'img-others.webp', imageAlt: 'Fio dental', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
-    { name: 'Fio dental', category: 'Outros', image: 'img-others.webp', imageAlt: 'Fio dental', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 }
-  ];
+import { products } from './dataProducts.js';
 
+document.addEventListener('DOMContentLoaded', function() {
   // Array com todas as categorias
   const categories = [...new Set(products.map(product => product.category))];
 
@@ -40,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Filtra os produtos que pertencem à categoria atual
     const productsInCategory = products.filter(product => product.category === category);
-    console.log(productsInCategory);
 
     // Loop por todos os produtos da categoria
     productsInCategory.forEach((product) => {
@@ -75,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </span>
           </div>
 
-          <button class="button scheme--3">Adicionar ao carrinho</button>
+          <button class="button add-to-cart scheme--3" data-id="${product.id}">Adicionar ao carrinho</button>
         </div>
       `
 

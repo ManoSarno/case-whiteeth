@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let rating = parseFloat(item.getAttribute('data-rating')); // e.g. 4.3
 
     // Looping 5 times
-    for(i = 0; i < 5; i++) {
+    for(let i = 0; i < 5; i++) {
         let starRating = rating - i;
         let starId = `star-${index + 1}-${i + 1}`
         let gradientId = `starGradient-${index + 1}-${i + 1}`;
