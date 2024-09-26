@@ -117,16 +117,17 @@
 		<div class="overlay hidden"></div>
 
 		<!-- Menu drawer -->
-		<div id="drawerMenu" class="menu-drawer">
-			<span class="close" id="closeMenu">X</span>
-			<h2>Categorias de Produtos</h2>
-			<ul>
-					<li><a href="#">Pasta de dente</a></li>
-					<li><a href="#">Escova de dente</a></li>
-					<li><a href="#">Raspador de língua</a></li>
-					<li><a href="#">Clareamento</a></li>
-					<li><a href="#">Aparelhos ortodônticos</a></li>
-			</ul>
+		<div id="drawerMenu" class="menu-drawer scheme--1">
+			<div class="menu-title scheme--2">
+				<h3>Categorias</h3>
+				<button class="close-menu-btn" id="closeMenu">
+					<svg class="icon icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
+			</div>
+			<ul id="categoriesList"></ul>
 		</div>
 
 		<!-- Cart drawer -->
@@ -160,6 +161,7 @@
 		<script type="module" src="filter.js"></script>
 		<script type="module" src="cart.js"></script>
 		<script type="module" src="menu.js"></script>
+		<script type="module" src="categories.js"></script>
 	</body>
 
 </html>

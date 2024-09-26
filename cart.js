@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const openCartBtn = document.getElementById('openCart');
   const closeCartBtn = document.getElementById('closeCart');
   const drawerCart = document.getElementById('drawerCart');
+  const overlay = document.querySelector('.overlay');
   const cartItemsContainer = document.getElementById('cartItems');
   const cartTotal = document.getElementById('cart-total');
-  const overlay = document.querySelector('.overlay');
   const drawerFooter = document.querySelector('.drawer-footer');
   
   // Open cart and show overlay

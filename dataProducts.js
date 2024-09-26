@@ -9,3 +9,6 @@ export const products = [
   { id: 8, name: 'Fio dental', category: 'Outros', image: 'img-others.webp', imageAlt: 'Fio dental', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 },
   { id: 9, name: 'Fio dental', category: 'Outros', image: 'img-others.webp', imageAlt: 'Fio dental', rating: 4.5, ratingNumbers: 24, price: 50.90, comparePrice: 70.90 }
 ];
+
+// Array with all different categories
+export const difCategories = [...new Set(products.map(product => product.category))];

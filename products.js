@@ -1,16 +1,24 @@
-import { products } from './dataProducts.js';
+import { products, difCategories } from './dataProducts.js';
+
+// Function to create a slug from a category name
+export function createSlug(name) {
+  return name
+    .toLowerCase()                // Converte para minúsculas
+    .replace(/\s+/g, '-')        // Substitui espaços por hífens
+    .replace(/[^\w\-]+/g, '')    // Remove caracteres especiais
+    .replace(/--+/g, '-')        // Substitui múltiplos hífens por um único
+    .replace(/^-+|-+$/g, '');     // Remove hífens do início e do fim
+}
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Array com todas as categorias
-  const categories = [...new Set(products.map(product => product.category))];
-
   const productsContainer = document.getElementById('products');
 
-  // Loop por todas as categorias
-  categories.forEach((category) => {
+  // Loop through all different categories
+  difCategories.forEach((category) => {
     let categoryWrapper = document.createElement('article');
-    
     categoryWrapper.classList.add('product-category');
+    categoryWrapper.id = createSlug(category);
+
     let categoryHeadingWrapper = document.createElement('div');
     categoryHeadingWrapper.classList.add('container');
 
@@ -28,18 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     categoryProductsWrapper.append(categoryProducts);
 
-    // Filtra os produtos que pertencem à categoria atual
+    // Filter products that belongs to this category
     const productsInCategory = products.filter(product => product.category === category);
 
-    // Loop por todos os produtos da categoria
+    // Loop through all products in this category
     productsInCategory.forEach((product) => {
-      // Calculando o desconto do produto
+      // Calculate product discount
       let discount = Math.round((product.comparePrice - product.price)*100/product.comparePrice);
       
       let productCard = document.createElement('div');
       productCard.classList.add('product-card', 'scheme--4');
 
-      // Renderizando conteúdo de acordo com o produto e categoria
+      // Renders content based on the product and the category
       productCard.innerHTML = `
         <div class="product-image-wrapper">
           ${product.image ? `<img src="assets/${product.image}" alt="${product.imageAlt || product.name}">` : ''}
