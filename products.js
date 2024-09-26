@@ -27,6 +27,7 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
 
   const productsContainer = document.getElementById('products');
 
+  // Loop por todas as categorias
   categoriesWithSlugs.forEach((category, index) => {
     let categoryWrapper = document.createElement('article');
     categoryWrapper.id = category.slug;
@@ -43,11 +44,15 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
     const productsInCategory = products.filter(product => product.category === category.name);
     console.log(productsInCategory);
 
+    // Loop por todos os produtos da categoria
     productsInCategory.forEach((product) => {
+      // Calculando o desconto do produto
       let discount = Math.round((product.comparePrice - product.price)*100/product.comparePrice);
       
       let productCard = document.createElement('div');
       productCard.classList.add('product-card', 'scheme--4');
+
+      // Renderizando conteúdo de acordo com o produto e categoria
       productCard.innerHTML = `
         <div class="product-image-wrapper">
           ${product.image ? `<img src="assets/${product.image}" alt="${product.imageAlt || product.name}">` : ''}
@@ -80,7 +85,6 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
     })
 
     categoryWrapper.append(categoryHeading, categoryProducts);
-
     productsContainer.append(categoryWrapper);
   });
 
