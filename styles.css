@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5 {
   cursor: pointer;
 }
 
-.login:hover > .icon, .cart:hover > .icon, .close-cart-btn:hover > .icon, .remove:hover > .icon-remove, .menu:hover > .icon, .close-menu-btn:hover > .icon {
+.login:hover > .icon, .cart:hover > .icon, .close-cart-btn:hover > .icon, .close-popup-btn:hover > .icon, .remove:hover > .icon-remove, .menu:hover > .icon, .close-menu-btn:hover > .icon {
   transform: scale(1.15);
 }
 
@@ -455,17 +455,22 @@ main {
   max-width: 537px;
 }
 
-.newsletter input {
+input {
   padding: 14.5px 16px;
   width: 100%;
   border: 2px solid var(--dark-brown);
   border-radius: 8px;
   background-color: transparent;
+  font-size: 16px;
 }
 
-.newsletter input::placeholder {
+input::placeholder {
   color: rgba(0, 0, 0, 0.72);
   font-size: 16px;
+}
+
+.newsletter input:focus {
+  outline: 1px solid var(--dark-brown);
 }
 
 .newsletter button {
@@ -511,7 +516,7 @@ main {
   width: 140px;
 }
 
-.close-cart-btn, .close-menu-btn {
+.close-cart-btn, .close-menu-btn, .close-popup-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -692,6 +697,67 @@ main {
   font-weight: 500;
   padding: 8px 24px;
   width: 100%;
+}
+
+/* Register popup */
+.popup {
+  display: flex;
+  position: fixed;
+  right: -100vw;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 100%;
+  height: fit-content;
+  max-width: 600px;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s;
+}
+
+.popup.open {  
+  right: 50%;
+}
+
+.popup-content {
+  margin: 0;
+  padding: 32px;
+  width: 100%;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.popup-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.popup input {
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.popup input:focus {
+  outline: 2px solid var(--yellow);
+}
+
+.registration-form button {
+  margin-top: 16px;
 }
 
 @media screen and (max-width: 1200px) {
