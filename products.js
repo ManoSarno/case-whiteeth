@@ -32,13 +32,22 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
     let categoryWrapper = document.createElement('article');
     categoryWrapper.id = category.slug;
     categoryWrapper.classList.add('product-category');
-  
+    let categoryHeadingWrapper = document.createElement('div');
+    categoryHeadingWrapper.classList.add('container');
+
     let categoryHeading = document.createElement('h3');
     categoryHeading.classList.add('category-heading');
     categoryHeading.textContent = category.name;
-  
+
+    categoryHeadingWrapper.append(categoryHeading);
+
+    let categoryProductsWrapper = document.createElement('div');
+    categoryProductsWrapper.classList.add('product-grid-wrapper', 'container');
+
     let categoryProducts = document.createElement('div');
     categoryProducts.classList.add('product-grid');
+
+    categoryProductsWrapper.append(categoryProducts);
 
     // Filtra os produtos que pertencem à categoria atual
     const productsInCategory = products.filter(product => product.category === category.name);
@@ -84,7 +93,7 @@ const categoriesWithSlugs = getCategoriesWithSlugs(products);
       categoryProducts.append(productCard);
     })
 
-    categoryWrapper.append(categoryHeading, categoryProducts);
+    categoryWrapper.append(categoryHeadingWrapper, categoryProductsWrapper);
     productsContainer.append(categoryWrapper);
   });
 

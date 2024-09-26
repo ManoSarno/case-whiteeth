@@ -407,7 +407,7 @@ main {
 
 .product-card button {
   border: none;
-  padding: 10px;
+  padding: 12px 10px;
   width: 100%;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -415,7 +415,7 @@ main {
 
 .newsletter-wrapper {
   display: grid;
-  grid-template-columns: 467px 1fr;
+  grid-template-columns: min(467px, 50vw) 1fr;
 }
 
 .newsletter-wrapper img {
@@ -451,6 +451,11 @@ main {
   background-color: transparent;
 }
 
+.newsletter input::placeholder {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 16px;
+}
+
 .newsletter button {
   width: max-content;
   padding: 12px 24px;
@@ -462,7 +467,73 @@ main {
   display: none !important;
 }
 
+@media screen and (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .products {
+    overflow: hidden;
+    gap: 48px;
+  }
+
+  .product-category {
+    gap: 32px;
+  }
+
+  .product-grid-wrapper {
+    width: 100vw;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .product-grid-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+  }
+
+  .product-card {
+    max-width: min(85vw, 320px);
+  }
+
+  .newsletter-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter {
+    padding: 64px 0 120px;
+    gap: 40px;
+    max-width: unset;
+  }
+
+  .newsletter h3 {
+    font-size: 24px;
+  }
+
+  .newsletter form {
+    flex-direction: column;
+    max-width: unset;
+  }
+
+  .newsletter button {
+    width: 100%;
+  }
+
   h1 {
     font-size: clamp(28px, 8.5vw, 36px);
   }
@@ -475,7 +546,7 @@ main {
     display: none !important;
   }
 
-  .container {
+  .container, .container-mobile {
     padding-left: 24px !important;
     padding-right: 24px !important;
   }
@@ -523,12 +594,16 @@ main {
 }
 
 @media screen and (max-width: 375px) {
-  .container {
+  .container, .container-mobile {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
 
   .menu {
     padding: 0;
+  }
+
+  .product-grid {
+    gap: 16px;
   }
 }
