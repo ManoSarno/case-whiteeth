@@ -111,14 +111,24 @@
 		<div id="drawerCart" class="drawer">
 			<div class="drawer-header scheme--2">
 				<img src="assets/logo-whiteeth.svg" alt="Logo branca Whiteeth">
-				<button id="closeCart" class="close-cart-btn">&times;</button>
+				<button id="closeCart" class="close-cart-btn">
+					<svg class="icon icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
 			</div>
 			<div class="drawer-body" id="cartItems">
 				<!-- Cart items will be dynamically inserted here -->
 				<p>Your cart is empty</p>
 			</div>
 			<div class="drawer-footer">
-				<button class="checkout-btn">Checkout</button>
+				<div class="total">
+					<span>Total:</span>
+					<span id="cart-total">R$0,00</span>
+				</div>
+				<button id="checkout" class="button scheme--3 checkout-btn">FINALIZAR COMPRA</button>
+				<button id="continueShopping" class="button scheme--4 continue-btn">CONTINUAR COMPRANDO</button>
 			</div>
 		</div>
 
