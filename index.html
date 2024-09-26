@@ -14,15 +14,17 @@
 
 	<body>
 		<header class="header">
+			<!-- Top bar -->
 			<div class="scheme--2">
 				<div class="container header-top">
 					<p><a href="#">cadastre-se</a> para ganhar 15% na primeira compra</p>
 				</div>
 			</div>
-			
+
+			<!-- Menu header -->
 			<nav class="scheme--3">
 				<div class="container navbar">
-					<div class="menu">
+					<div class="menu" id="openMenu">
 						<svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z" fill="currentColor"/>
 						</svg>
@@ -51,7 +53,8 @@
 					</div>
 				</div>
 			</nav>
-
+			
+			<!-- Hero -->
 			<div class="hero scheme--2">
 				<div class="hero-img">
 					<img src="assets/banner.jpg" alt="Banner Cuide do seu sorriso" class="hide-small">
@@ -70,7 +73,8 @@
 
 		<main>
 			<h2 class="main-heading">oral care</h2>
-
+			
+			<!-- Filter products by category -->
 			<section class="scheme--1" aria-labelledby="filter-heading">
 				<div class="filter container">
 					<h3 id="filter-heading">
@@ -92,9 +96,11 @@
 				</div>
 			</section>
 
+			<!-- Products categories with products grid -->
 			<section class="products scheme--1" id="products" aria-label="Lista de produtos"></section>
 		</main>
 
+		<!-- Footer -->
 		<footer class="footer scheme--4">
 			<section class="newsletter-wrapper">
 				<img src="assets/newsletter-img.jpg">
@@ -107,9 +113,23 @@
 				</div>
 			</section>
 		</footer>
+		
+		<div class="overlay hidden"></div>
 
-		<div class="opacity-layer hidden"></div>
+		<!-- Menu drawer -->
+		<div id="drawerMenu" class="menu-drawer">
+			<span class="close" id="closeMenu">X</span>
+			<h2>Categorias de Produtos</h2>
+			<ul>
+					<li><a href="#">Pasta de dente</a></li>
+					<li><a href="#">Escova de dente</a></li>
+					<li><a href="#">Raspador de língua</a></li>
+					<li><a href="#">Clareamento</a></li>
+					<li><a href="#">Aparelhos ortodônticos</a></li>
+			</ul>
+		</div>
 
+		<!-- Cart drawer -->
 		<div id="drawerCart" class="drawer">
 			<div class="drawer-header scheme--2">
 				<img src="assets/logo-whiteeth.svg" alt="Logo branca Whiteeth">
@@ -131,7 +151,7 @@
 					<span id="cart-total">R$0,00</span>
 				</div>
 				<button id="checkout" class="button scheme--3 checkout-btn">FINALIZAR COMPRA</button>
-				<button id="continueShopping" class="button scheme--4 continue-btn">CONTINUAR COMPRANDO</button>
+				<button id="closeBtn" class="button scheme--4 continue-btn">CONTINUAR COMPRANDO</button>
 			</div>
 		</div>
 
@@ -139,6 +159,7 @@
 		<script type="module" src="rating.js"></script>
 		<script type="module" src="filter.js"></script>
 		<script type="module" src="cart.js"></script>
+		<script type="module" src="menu.js"></script>
 	</body>
 
 </html>

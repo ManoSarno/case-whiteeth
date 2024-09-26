@@ -634,14 +634,33 @@ main {
   font-size: 14px;
 }
 
-.opacity-layer {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Menu drawer */
+
+.menu-drawer {
+  height: 100%;
+  width: 300px; /* Largura do menu */
+  position: fixed;
+  top: 0;
+  left: -300px; /* Inicialmente escondido */
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.menu-drawer.open {
+  left: 0;
 }
 
 @media screen and (max-width: 1200px) {
