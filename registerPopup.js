@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const openPopupBtn = document.getElementById('openPopup');
+  const openPopupBtn2 = document.getElementById('open-popup');
   const closePopupBtn = document.getElementById('closePopup');
   const popup = document.getElementById('popup');
   const overlay = document.getElementById('overlay');
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   openPopupBtn.addEventListener('click', openPopup);
+  openPopupBtn2.addEventListener('click', openPopup);
   closePopupBtn.addEventListener('click', closePopup);
 
   // Lida com o envio do formulário

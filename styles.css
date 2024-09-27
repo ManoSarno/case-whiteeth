@@ -81,8 +81,17 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.75px;
 }
 
-.header-top a {
+.header-top button {
   color: var(--cream);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+.header-top button:hover {
+  text-decoration-thickness: 2px;
 }
 
 .navbar {
@@ -133,6 +142,56 @@ h1, h2, h3, h4, h5 {
 
 .login:hover > .icon, .cart:hover > .icon, .close-cart-btn:hover > .icon, .close-popup-btn:hover > .icon, .remove:hover > .icon-remove, .menu:hover > .icon, .close-menu-btn:hover > .icon {
   transform: scale(1.15);
+}
+
+.button-box .btn:link,
+.button-box .btn:visited {
+  transition: all .2s;
+}
+
+.button-box .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-box .btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-box .btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.button-box .btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.button-box .btn-animated {
+  animation: moveInBottom 5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .button {
@@ -190,6 +249,7 @@ h1, h2, h3, h4, h5 {
 .hero-img {
   width: 100%;
   height: clamp(400px, 26.45vw, 100vh);
+  position: relative;
 }
 
 .hero-img img {
@@ -773,6 +833,13 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) {
+  .button-box {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 10;
+  }
+
   .products {
     overflow: hidden;
     gap: 48px;
@@ -887,6 +954,11 @@ input::placeholder {
 }
 
 @media screen and (max-width: 375px) {
+  .button-box {
+    left: 16px;
+    bottom: 16px;
+  }
+  
   .container, .container-mobile {
     padding-left: 16px !important;
     padding-right: 16px !important;
