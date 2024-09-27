@@ -30,7 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Loop through all categories
   categories.forEach((category) => {
     let listItem = document.createElement('li');
-    listItem.innerHTML = `<a class="category-link" href="#${createSlug(category)}">${category}</a>`; // Use slug in the href
+
+    // Use slug in the href
+    listItem.innerHTML = `
+      <a class="category-link" href="#${createSlug(category)}">
+        ${category}
+        <svg class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.707,15.707l-3,3a1,1,0,0,1-1.414,0l-3-3a1,1,0,0,1,1.414-1.414L11,15.586V6a1,1,0,0,1,2,0v9.586l1.293-1.293a1,1,0,0,1,1.414,1.414Z"/></svg>
+      </a>`;
+      
     categoriesList.append(listItem);
 
     let filterButton = document.createElement('button');

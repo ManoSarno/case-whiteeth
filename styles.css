@@ -138,10 +138,15 @@ h1, h2, h3, h4, h5 {
 .login, .cart {
   display: flex;
   cursor: pointer;
+  z-index: 1;
 }
 
-.login:hover > .icon, .cart:hover > .icon, .close-cart-btn:hover > .icon, .close-popup-btn:hover > .icon, .remove:hover > .icon-remove, .menu:hover > .icon, .close-menu-btn:hover > .icon {
+.login:hover > .icon, .cart:hover > .icon, .close-cart-btn:hover > .icon, .close-popup-btn:hover > .icon, .close-chat-btn:hover > .icon, .remove:hover > .icon-remove, .menu:hover > .icon, .close-menu-btn:hover > .icon {
   transform: scale(1.15);
+}
+
+.button-box {
+  position: relative;
 }
 
 .button-box .btn:link,
@@ -547,24 +552,25 @@ input::placeholder {
 /* Drawer Cart Styles */
 .drawer {
   position: fixed;
-  right: -400px;
+  right: 0;
   top: 0;
   width: 400px;
+  transform: translateX(100%);
   max-width: 100%;
   height: 100%;
   background-color: var(--white);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  transition: right 0.3s ease;
+  transition: transform 0.3s ease;
   z-index: 1000;
 }
 
 .drawer.open {
-  right: 0;
+  transform: translateX(0);
 }
 
-/* Drawer Header */
+/* Cart drawer Header */
 .drawer-header {
   display: flex;
   align-items: center;
@@ -576,14 +582,14 @@ input::placeholder {
   width: 140px;
 }
 
-.close-cart-btn, .close-menu-btn, .close-popup-btn {
+.close-cart-btn, .close-menu-btn, .close-popup-btn, .close-chat-btn {
   background: none;
   border: none;
   cursor: pointer;
   color: currentColor;
 }
 
-/* Drawer Body */
+/* Cart drawer Body */
 .drawer-body {
   flex: 1;
   padding: 32px 24px;
@@ -718,18 +724,19 @@ input::placeholder {
 
 .menu-drawer {
   height: 100%;
-  width: 400px; /* Largura do menu */
+  width: 300px; /* Largura do menu */
   max-width: 100%;
   position: fixed;
   top: 0;
-  left: -400px; /* Inicialmente escondido */
+  left: 0;
+  transform: translateX(-100%); /* Inicialmente escondido */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  transition: left 0.3s;
+  transition: transform 0.3s;
   z-index: 1000;
 }
 
 .menu-drawer.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 .menu-title {
@@ -755,9 +762,24 @@ input::placeholder {
   color: currentColor;
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 24px;
+  padding: 12px 48px 12px 24px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  transition: padding 0.2s ease-in-out;
 }
+
+.menu-drawer .icon-arrow {
+  transform: rotate(-90deg);
+}
+
+.menu-drawer ul a:hover {
+  background: var(--cream);
+  padding: 12px 24px;
+}
+
 
 /* Register popup */
 .popup {
@@ -818,6 +840,120 @@ input::placeholder {
 
 .registration-form button {
   margin-top: 16px;
+}
+
+/* Chat Popup Styles */
+.chat-popup {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  position: fixed;
+  bottom: 50px;
+  right: calc(max(50px, 50vw - 690px));
+  width: 64px;
+  height: 64px;
+  max-width: calc(100vw - 48px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.chat-popup.open {
+  opacity: 1;
+  width: 300px;
+  height: 400px;
+}
+
+.chat-header {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-body {
+  padding: 12px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--cream);
+}
+
+.chat-footer {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid var(--gray);
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.chat-footer input::placeholder {
+  font-size: 14px;
+}
+
+.chat-footer input:focus {
+  outline: 1px solid var(--dark-brown);
+}
+
+.chat-footer button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.chat-footer button:hover {
+  background-color: var(--dark-yellow);
+}
+
+.chat-btn {
+  position: fixed;
+  bottom: 50px;
+  right: calc(max(50px, 50vw - 690px));
+  padding: 16px;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.chat-btn.open {
+  display: flex;
+}
+
+.chat-btn:hover {
+  background-color: var(--dark-yellow);
+}
+
+.chat-message {
+  margin-bottom: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px 16px 0 16px;
+  width: 80%;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.chat-message.sent {
+  text-align: right;
+  color: var(--dark-brown);
+}
+
+.chat-message.received {
+  text-align: left;
+  color: var(--white);
+  background: var(--dark-brown);
+  margin: 0 auto 0 0;
+  border-radius: 16px 16px 16px 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -951,6 +1087,11 @@ input::placeholder {
     width: max-content;
     flex-wrap: nowrap;
   }
+
+  .chat-popup, .chat-btn {
+    right: 24px;
+    bottom: 24px;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -970,5 +1111,14 @@ input::placeholder {
 
   .product-grid {
     gap: 16px;
+  }
+
+  .chat-popup, .chat-btn {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chat-popup {
+    max-width: calc(100vw - 32px);
   }
 }
